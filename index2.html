@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="list">
+        <li>Hello</li>
+        <li>Hello</li>
+    </ul>
+    <script>
+        const List = document.querySelector(".list");
+        console.log(List);
+        List.firstElementChild.style.background = 'green';
+        List.children[1].style.background = 'yellow';
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+body{
+    background-image: url(https://images.pexels.com/photos/1835718/pexels-photo-1835718.jpeg?auto=compress&cs=tinysrgb&w=600);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    color:rgb(109, 180, 243) ;
+    font-size: 2.3vh;
+}
+div{
+    padding: 10px 20px;
+    text-align: center;
+    width: 700px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+h1{
+    color:rgb(109, 180, 243);
+}
+label{
+    float: left;
+}
+input{
+    outline: none;
+    width: 600px;
+    height: 20px;
+}
+ .time{
+  height: 20px;
+  width: 600PX;
+  margin-left: 30PX;
+  color:rgb(109, 180, 243);;
+  display: flex;
+  justify-content: space-between;
+}
+.time > input{
+    width: 290px;
+}
+button{
+    width: 600PX;
+    height: 30px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(109, 180, 243);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
