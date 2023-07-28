@@ -24,7 +24,7 @@
         <p class="text-center ">Book a call slot and our representative will call you within 1 hour in selected time </p>
     </div> 
     <hr>
-    <form action="#" id="myform">
+    <form id="myform" method="get" action="submit">
         <label for="name" class="form-label"> name: </label>
         <br>
         <input  type="text" name="name" id="name" class="form-control">
@@ -33,18 +33,18 @@
         <br>
         <input type="email" name="email" id="email" class="form-control">
         <br>
-        <label for="pn"class="form-label"> Phone: </label>
+        <label for="phone"class="form-label"> Phone: </label>
         <br>
-        <input type="number" name="Mobile" id="pn" class="form-control">
+        <input type="number" name="Mobile" id="phone" class="form-control">
         <br>
         <label for="dt" class="form-label">Time for call: </label>
         <br>
         <div class="row align-items-center dt">
             <div class="col-md-6">
-               <input type="date" name="date" id="dt" value="22/11/2020" class="form-control ">
+               <input type="date" name="date" id="date" value="22/11/2020" class="form-control ">
             </div>
             <div class="col-6">
-                <input type="time" name="time" id="dt" value="11:00" class="form-control">
+                <input type="time" name="time" id="time" value="11:00" class="form-control">
             </div>
         </div>
         <br>
@@ -56,26 +56,38 @@
  <script>
     const Btn = document.querySelector('.btn');
     const myForm =document.querySelector("#myform");
-    const nameInput =document.querySelector("#name");
-    const emailInput =document.querySelector("#email");
-    const phnInput =document.querySelector("#pn");
+   
+
     const formBox = document.querySelector("#main")
     Btn.addEventListener('click',(e) =>{
         e.preventDefault;
         Btn.style.background ="green"
     });
-    formBox.addEventListener('mouseover',(e) =>{
-        e.preventDefault;
-        formBox.style.background ="#ccc"
-    });
-    Btn.addEventListener('mouseout',(e) =>{
-        e.preventDefault;
-        Btn.style.background ="red";
-    });
     myForm.addEventListener("submit", onSubmit);
     function onSubmit(e){
         e.preventDefault();
-        console.log(nameInput.value, emailInput.value, phnInput.value);
+    const formData = new FormData(myForm);
+    console.log(formData);
+       // Convert form data to a plain object
+       const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      // Retrieve existing data from local storage
+      const savedData = localStorage.getItem('formData');
+
+      // If there is existing data, parse it from JSON, otherwise, create an empty array
+      const dataArray = savedData ? JSON.parse(savedData) : [];
+
+      // Add the new form data to the array
+      dataArray.push(data);
+
+      // Save the updated array to local storage
+      localStorage.setItem('formData', JSON.stringify(dataArray));
+
+      alert('Form data saved to local storage!');
+     
     }
  </script> 
 </body>
